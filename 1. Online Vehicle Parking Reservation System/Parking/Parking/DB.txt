@@ -1,0 +1,28 @@
+create database parking;
+use parking;
+
+create table signup(username varchar(50) primary key,
+password varchar(50),
+contact_no varchar(15),
+email varchar(50),
+address varchar(80));
+
+create table parking_area(area_id int primary key,
+area_name varchar(50),
+direction varchar(50),
+floor_no int,
+total_slots int,
+parking_cost double);
+
+create table book_slot(parking_id int primary key,
+area_id int,
+slot_no int,
+entry_date varchar(40),
+exit_date timestamp,
+total_charges double,
+vehicle_no varchar(40),
+username varchar(50),
+card_no varchar(20),
+cvv_no varchar(5),
+status varchar(20));
+

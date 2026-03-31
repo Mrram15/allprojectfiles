@@ -1,0 +1,42 @@
+{% load static %}
+<html>
+<head>
+<title>Online Vehicle Parking</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Online Vehicle Parking Reservation System</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+		<ul id="main">
+			<li class="current_page_item"><a href="{% url 'index' %}"><font size="3" color="white">Home</a></li><td></td>
+			<li><a href="{% url 'AdminLogin' %}"><font size="3" color="white">Admin Login</a></li><td></td>
+			<li><a href="{% url 'UserLogin' %}"><font size="3" color="white">User Login</a></li><td></td>
+			<li><a href="{% url 'Register' %}"><font size="3" color="white">New User Signup Here</a></li><td></td>
+			<td></td>		     
+		</ul>
+         
+        </div>
+       
+<div class="flower"><img src="{% static 'images/header_images.jpg' %}" alt="" width="1020" height="286" /></center></div>
+		{{ data|safe }}
+
+       <p align="justify"><font size="3" style="font-family: Comic Sans MS" color="black"><center>Online Vehicle Parking Reservation System.</center>
+
+</p>
+ 
+  </body>
+</html>

@@ -1,0 +1,96 @@
+{% load static %}
+<html>
+<head>
+<title>Online Vehicle Parking</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t4.value.length==0)
+	{
+	alert("Please Enter total slots");
+	formObj.t4.focus();
+	return false;
+	}
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter parking cost");
+	formObj.t5.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+	
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Online Vehicle Parking Reservation System</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+    <ul>      
+     <li><a href="{% url 'AddArea' %}"><font size="3" color="white">Add Parking Area</a></li>
+	 <li><a href="{% url 'ModifyArea' %}"><font size="3" color="white">Modify Parking Area</a></li>
+	 <li><a href="{% url 'ViewUsers' %}"><font size="3" color="white">View Users</a></li>
+	 <li><a href="{% url 'ViewOccupancy' %}"><font size="3" color="white">View Occupancy</a></li>
+	 <li><a href="{% url 'index' %}"><font size="3" color="white">Logout</a></li>
+   </ul>      
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'AddAreaAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Add New Parking Area Page</b></h2>
+   
+	<font size="" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+			  <tr><td><font size="3" color="black"><b>Gate&nbsp;Name</b></td><td><select name="t1">
+			  <option value="Gate1">Gate1</option>
+			  <option value="Gate2">Gate2</option>
+			  <option value="Gate3">Gate3</option>
+			  </select></td></td></tr>
+		 <tr><td><font size="3" color="black"><b>Direction</b></td><td><select name="t2">
+		 <option value="Front">Front</option>
+		 <option value="Center">Center</option>
+		 <option value="Rear">Rear</option>
+		 </select>
+		 </td></td></tr>
+
+         
+		  <tr><td><font size="3" color="black"><b>Floor&nbsp;No</b></td>
+			<td><select name="t3">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			</select></td></td></tr>
+
+		    
+		   <tr><td><font size="3" color="black"><b>Total&nbsp;Slots</b></td><td><input type="number" name="t4" style="font-family: Comic Sans MS" size="15"/></td></tr>
+
+          <tr><td><font size="3" color="black"><b>Parking&nbsp;Cost</b></td><td><input name="t5" type="number" size="15"></td></td></tr>
+
+				  
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>
